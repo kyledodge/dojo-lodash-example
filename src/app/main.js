@@ -22,7 +22,11 @@
  * More information about everything described about the loader throughout this file can be found at
  * <http://dojotoolkit.org/reference-guide/loader/amd.html>.
  */
-define([ './Dialog', 'dojo/domReady!' ], function (Dialog) {
+define([
+	'./Dialog',
+	'lodash/array/union',
+	'dojo/domReady!'
+], function (Dialog, union) {
 	var app = {};
 
 	// Create a new instance of our custom Dijit dialog and place it in the DOM
@@ -43,5 +47,15 @@ define([ './Dialog', 'dojo/domReady!' ], function (Dialog) {
 	// Returning a value from an AMD module means that it becomes the value of the module. In this case, we return
 	// the `app` object, which means that other parts of the application that require `app/main` could get a reference
 	// to the dialog
+
+	// Lodash example
+	var employees = ['John', 'Sam', 'Bob'],
+		employees2 = ['Jane', 'Kari', 'Jamie'];
+
+	console.log(employees);
+	console.log(employees2);
+	console.log('=== Union Result ===');
+	console.log(union(employees, employees2));
+
 	return app;
 });
